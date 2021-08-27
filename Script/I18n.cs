@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static surfm.tool.i18n.I18nDB;
 
 namespace surfm.tool.i18n {
     public class I18n : MonoBehaviour {
@@ -72,6 +72,10 @@ namespace surfm.tool.i18n {
 
         public List<string> listKeys() {
             return new List<string>(I18nDB.getInstance(category).getMap().Keys);
+        }
+
+        public Term getTerm(string key) {
+            return I18nDB.getInstance(category).getMap()[key];
         }
 
         public static string get(I18nKey key) {
